@@ -3,7 +3,11 @@
 
 package config
 
-import "time"
+import (
+	"fmt"
+	"strings"
+	"time"
+)
 
 type Config struct {
 	Period     time.Duration `config:"period"`
@@ -12,5 +16,12 @@ type Config struct {
 
 var DefaultConfig = Config{
 	Period:     1 * time.Second,
-	Repository: "library/nginx",
+	Repository: "nginx",
+}
+
+func (c *Config) RepositoryLong() string {
+	if strings.Index(c.Repository, "/") == -1 {
+		return fmt.Sprintf("library/%s", c.Repository)
+	}
+	return c.Repository
 }

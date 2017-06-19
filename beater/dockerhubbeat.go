@@ -69,10 +69,9 @@ func (bt *Dockerhubbeat) Run(b *beat.Beat) error {
 		case <-ticker.C:
 		}
 
-		logp.Info(bt.config.Repository)
 		data, err := bt.FetchData()
 		if err != nil {
-			logp.Warn(fmt.Sprintf("Unable to fetch repository data [%s]", bt.config.Repository))
+			logp.Warn(fmt.Sprintf("Unable to fetch repository data [%s]", bt.config.RepositoryLong()))
 			continue
 		}
 
@@ -95,7 +94,7 @@ func (bt *Dockerhubbeat) Stop() {
 
 func (bt *Dockerhubbeat) FetchData() (DockerhubData, error) {
 	res := DockerhubData{}
-	r, err := http.Get(fmt.Sprintf("https://hub.docker.com/v2/repositories/%s", bt.config.Repository))
+	r, err := http.Get(fmt.Sprintf("https://hub.docker.com/v2/repositories/%s", bt.config.RepositoryLong()))
 	if err != nil || r.StatusCode != 200 {
 		return res, err
 	}
