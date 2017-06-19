@@ -1,0 +1,143 @@
+2017-06-19T18:21:40+02:00 INFO Home path: [/Users/felix/go/src/github.com/FriggaHel/dockerhubbeat] Config path: [/Users/felix/go/src/github.com/FriggaHel/dockerhubbeat] Data path: [/Users/felix/go/src/github.com/FriggaHel/dockerhubbeat/data] Logs path: [/Users/felix/go/src/github.com/FriggaHel/dockerhubbeat/logs]
+2017-06-19T18:21:40+02:00 INFO Setup Beat: dockerhubbeat; Version: 5.4.2
+2017-06-19T18:21:40+02:00 DBG  Processors: 
+2017-06-19T18:21:40+02:00 DBG  Initializing output plugins
+2017-06-19T18:21:40+02:00 INFO Loading template enabled. Reading template file: /Users/felix/go/src/github.com/FriggaHel/dockerhubbeat/dockerhubbeat.template.json
+2017-06-19T18:21:40+02:00 INFO Loading template enabled for Elasticsearch 2.x. Reading template file: /Users/felix/go/src/github.com/FriggaHel/dockerhubbeat/dockerhubbeat.template-es2x.json
+2017-06-19T18:21:40+02:00 INFO Loading template enabled for Elasticsearch 6.x. Reading template file: /Users/felix/go/src/github.com/FriggaHel/dockerhubbeat/dockerhubbeat.template-es6x.json
+2017-06-19T18:21:40+02:00 INFO Elasticsearch url: http://localhost:9200
+2017-06-19T18:21:40+02:00 INFO Activated elasticsearch as output plugin.
+2017-06-19T18:21:40+02:00 DBG  Create output worker
+2017-06-19T18:21:40+02:00 DBG  No output is defined to store the topology. The server fields might not be filled.
+2017-06-19T18:21:40+02:00 INFO Publisher name: dh-traefik
+2017-06-19T18:21:40+02:00 INFO Flush Interval set to: 1s
+2017-06-19T18:21:40+02:00 INFO Max Bulk Size set to: 50
+2017-06-19T18:21:40+02:00 DBG  create bulk processing worker (interval=1s, bulk size=50)
+2017-06-19T18:21:40+02:00 INFO dockerhubbeat start running.
+2017-06-19T18:21:40+02:00 INFO dockerhubbeat is running! Hit CTRL-C to stop it.
+2017-06-19T18:21:41+02:00 DBG  Publish: {
+  "@timestamp": "2017-06-19T16:21:41.485Z",
+  "beat": {
+    "hostname": "Felixs-MacBook-Pro.local",
+    "name": "dh-traefik",
+    "version": "5.4.2"
+  },
+  "counter": 1,
+  "fields": {
+    "env": "test"
+  },
+  "type": "dockerhubbeat"
+}
+2017-06-19T18:21:41+02:00 INFO Event sent
+2017-06-19T18:21:42+02:00 DBG  Publish: {
+  "@timestamp": "2017-06-19T16:21:42.484Z",
+  "beat": {
+    "hostname": "Felixs-MacBook-Pro.local",
+    "name": "dh-traefik",
+    "version": "5.4.2"
+  },
+  "counter": 2,
+  "fields": {
+    "env": "test"
+  },
+  "type": "dockerhubbeat"
+}
+2017-06-19T18:21:42+02:00 DBG  output worker: publish 1 events
+2017-06-19T18:21:42+02:00 INFO Event sent
+2017-06-19T18:21:42+02:00 DBG  ES Ping(url=http://localhost:9200, timeout=1m30s)
+2017-06-19T18:21:42+02:00 DBG  Ping status code: 200
+2017-06-19T18:21:42+02:00 INFO Connected to Elasticsearch version 5.4.0
+2017-06-19T18:21:42+02:00 INFO Trying to load template for client: http://localhost:9200
+2017-06-19T18:21:42+02:00 DBG  HEAD http://localhost:9200/_template/dockerhubbeat  <nil>
+2017-06-19T18:21:42+02:00 INFO Template already exists and will not be overwritten.
+2017-06-19T18:21:42+02:00 DBG  PublishEvents: 1 events have been  published to elasticsearch in 25.63653ms.
+2017-06-19T18:21:42+02:00 DBG  send completed
+2017-06-19T18:21:43+02:00 DBG  output worker: publish 1 events
+2017-06-19T18:21:43+02:00 DBG  Publish: {
+  "@timestamp": "2017-06-19T16:21:43.483Z",
+  "beat": {
+    "hostname": "Felixs-MacBook-Pro.local",
+    "name": "dh-traefik",
+    "version": "5.4.2"
+  },
+  "counter": 3,
+  "fields": {
+    "env": "test"
+  },
+  "type": "dockerhubbeat"
+}
+2017-06-19T18:21:43+02:00 INFO Event sent
+2017-06-19T18:21:43+02:00 DBG  PublishEvents: 1 events have been  published to elasticsearch in 30.786905ms.
+2017-06-19T18:21:43+02:00 DBG  send completed
+2017-06-19T18:21:44+02:00 DBG  output worker: publish 1 events
+2017-06-19T18:21:44+02:00 DBG  Publish: {
+  "@timestamp": "2017-06-19T16:21:44.484Z",
+  "beat": {
+    "hostname": "Felixs-MacBook-Pro.local",
+    "name": "dh-traefik",
+    "version": "5.4.2"
+  },
+  "counter": 4,
+  "fields": {
+    "env": "test"
+  },
+  "type": "dockerhubbeat"
+}
+2017-06-19T18:21:44+02:00 INFO Event sent
+2017-06-19T18:21:44+02:00 DBG  PublishEvents: 1 events have been  published to elasticsearch in 13.913749ms.
+2017-06-19T18:21:44+02:00 DBG  send completed
+2017-06-19T18:21:45+02:00 DBG  output worker: publish 1 events
+2017-06-19T18:21:45+02:00 DBG  Publish: {
+  "@timestamp": "2017-06-19T16:21:45.482Z",
+  "beat": {
+    "hostname": "Felixs-MacBook-Pro.local",
+    "name": "dh-traefik",
+    "version": "5.4.2"
+  },
+  "counter": 5,
+  "fields": {
+    "env": "test"
+  },
+  "type": "dockerhubbeat"
+}
+2017-06-19T18:21:45+02:00 INFO Event sent
+2017-06-19T18:21:45+02:00 DBG  PublishEvents: 1 events have been  published to elasticsearch in 26.692217ms.
+2017-06-19T18:21:45+02:00 DBG  send completed
+2017-06-19T18:21:46+02:00 DBG  output worker: publish 1 events
+2017-06-19T18:21:46+02:00 DBG  Publish: {
+  "@timestamp": "2017-06-19T16:21:46.483Z",
+  "beat": {
+    "hostname": "Felixs-MacBook-Pro.local",
+    "name": "dh-traefik",
+    "version": "5.4.2"
+  },
+  "counter": 6,
+  "fields": {
+    "env": "test"
+  },
+  "type": "dockerhubbeat"
+}
+2017-06-19T18:21:46+02:00 INFO Event sent
+2017-06-19T18:21:46+02:00 DBG  PublishEvents: 1 events have been  published to elasticsearch in 409.316629ms.
+2017-06-19T18:21:46+02:00 DBG  send completed
+2017-06-19T18:21:47+02:00 DBG  output worker: publish 1 events
+2017-06-19T18:21:47+02:00 DBG  Publish: {
+  "@timestamp": "2017-06-19T16:21:47.482Z",
+  "beat": {
+    "hostname": "Felixs-MacBook-Pro.local",
+    "name": "dh-traefik",
+    "version": "5.4.2"
+  },
+  "counter": 7,
+  "fields": {
+    "env": "test"
+  },
+  "type": "dockerhubbeat"
+}
+2017-06-19T18:21:47+02:00 INFO Event sent
+2017-06-19T18:21:47+02:00 DBG  PublishEvents: 1 events have been  published to elasticsearch in 21.28055ms.
+2017-06-19T18:21:47+02:00 DBG  send completed
+2017-06-19T18:21:48+02:00 DBG  Received sigterm/sigint, stopping
+2017-06-19T18:21:48+02:00 INFO Total non-zero values:  libbeat.es.call_count.PublishEvents=6 libbeat.es.publish.read_bytes=2505 libbeat.es.publish.write_bytes=2961 libbeat.es.published_and_acked_events=6 libbeat.publisher.messages_in_worker_queues=7 libbeat.publisher.published_events=7
+2017-06-19T18:21:48+02:00 INFO Uptime: 7.907950321s
+2017-06-19T18:21:48+02:00 INFO dockerhubbeat stopped.
