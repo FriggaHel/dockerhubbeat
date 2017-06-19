@@ -2,6 +2,10 @@
 
 Welcome to Dockerhubbeat.
 
+DockerhubBeat is a small beat design to read and store informations on a specific docker images (directly read from https://hub.docker.com).
+
+You just need to specify the repository to watch: `repository: traefik` or `repository: containous/traefik`.
+
 Ensure that this folder is at the following location:
 `${GOPATH}/github.com/FriggaHel/dockerhubbeat`
 
