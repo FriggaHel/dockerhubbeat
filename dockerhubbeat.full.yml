@@ -4,7 +4,8 @@
 
 dockerhubbeat:
   # Defines how often an event is sent to the output
-  period: 1s
+  period: 1m
+  repository: traefik
 
 #================================ General ======================================
 
@@ -644,4 +645,3 @@ logging.files:
 
   # Number of rotated log files to keep. Oldest files will be deleted first.
   #keepfiles: 7
-

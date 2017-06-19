@@ -2,8 +2,18 @@
   title: dockerhubbeat
   description:
   fields:
-    - name: counter
-      type: long
+    - name: repository.name
+      type: string
       required: true
       description: >
-        PLEASE UPDATE DOCUMENTATION
+        Name of the repository
+    - name: repository.stars
+      type: int
+      required: true
+      description: >
+        Number of stars given to that repository
+    - name: repository.pulls
+      type: int
+      required: true
+      description: >
+        Number of pulls of these images
