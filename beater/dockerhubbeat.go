@@ -4,13 +4,15 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"net/http"
+	"time"
+
 	"github.com/FriggaHel/dockerhubbeat/config"
+
 	"github.com/elastic/beats/libbeat/beat"
 	"github.com/elastic/beats/libbeat/common"
 	"github.com/elastic/beats/libbeat/logp"
 	"github.com/elastic/beats/libbeat/publisher"
-	"net/http"
-	"time"
 )
 
 type Dockerhubbeat struct {
@@ -69,21 +71,22 @@ func (bt *Dockerhubbeat) Run(b *beat.Beat) error {
 		case <-ticker.C:
 		}
 
-		data, err := bt.FetchData()
-		if err != nil {
-			logp.Warn(fmt.Sprintf("Unable to fetch repository data [%s]", bt.config.RepositoryLong()))
-			continue
-		}
+		for _, repository := range bt.config.Repositories {
+			data, err := bt.FetchData(&repository)
+			if err != nil {
+				logp.Warn(fmt.Sprintf("Unable to fetch repository data [%s]", repository.Name))
+				continue
+			}
 
-		event := common.MapStr{
-			"@timestamp":       common.Time(time.Now()),
-			"type":             b.Name,
-			"repository.name":  bt.config.Repository,
-			"repository.stars": data.StarCount,
-			"repository.pulls": data.PullCount,
+			event := common.MapStr{
+				"@timestamp":       common.Time(time.Now()),
+				"type":             b.Name,
+				"repository.name":  repository.FullName(),
+				"repository.stars": data.StarCount,
+				"repository.pulls": data.PullCount,
+			}
+			bt.client.PublishEvent(event)
 		}
-		bt.client.PublishEvent(event)
-		logp.Info("Event sent")
 	}
 }
 
@@ -92,9 +95,9 @@ func (bt *Dockerhubbeat) Stop() {
 	close(bt.done)
 }
 
-func (bt *Dockerhubbeat) FetchData() (DockerhubData, error) {
+func (bt *Dockerhubbeat) FetchData(rep *config.Repository) (DockerhubData, error) {
 	res := DockerhubData{}
-	r, err := http.Get(fmt.Sprintf("https://hub.docker.com/v2/repositories/%s", bt.config.RepositoryLong()))
+	r, err := http.Get(fmt.Sprintf("https://hub.docker.com/v2/repositories/%s", rep.FullName()))
 	if err != nil || r.StatusCode != 200 {
 		return res, err
 	}

@@ -4,8 +4,12 @@
 
 dockerhubbeat:
   # Defines how often an event is sent to the output
-  period: 1s
-  repository: traefik
+  period: 60s
+  repositories:
+    - name: traefik
+    - name: nginx
+    - name: traefik
+      namespace: emilevauge
 
 #================================ General =====================================
 
